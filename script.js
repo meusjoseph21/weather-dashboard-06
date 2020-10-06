@@ -9,7 +9,14 @@ $(document).ready(function() {
 var date = dayjs().format("MM/DD/YYYY")
 
 var historyArr = []
+var lsCities = localStorage.getItem("city")
 
+//if we have cities in local storage that should replace empty array above
+if (lsCities){
+  historyArr =  JSON.parse(localStorage.getItem("city"))
+
+}
+    
 
 
 // search for a city
@@ -108,6 +115,7 @@ function history(){
         newButton.text(historyArr[i])
         newButton.attr("class","historybutton btn btn-secondary btn-lg btn-block")
         $("#history").append(newButton)
+        localStorage.setItem("city", JSON.stringify(historyArr))
         
     }
    
@@ -289,7 +297,7 @@ function forecast(){
 
 }
 
-
+history()
 
 //event listeners
 $("#citysearch").on("click", function(e){
