@@ -22,7 +22,7 @@ $(document).ready(function () {
     var city = $("#cityValue").val();
 
     var queryURL =
-      "http://api.openweathermap.org/data/2.5/weather?q=" +
+      "https://api.openweathermap.org/data/2.5/weather?q=" +
       city +
       "&appid=c64ae898096dd7b2fab2998d1d228df8";
 
@@ -65,7 +65,7 @@ $(document).ready(function () {
       var lat = response.coord.lat;
       var lon = response.coord.lon;
       var newQueryURL =
-        "http://api.openweathermap.org/data/2.5/uvi?lat=" +
+        "https://api.openweathermap.org/data/2.5/uvi?lat=" +
         lat +
         "&lon=" +
         lon +
@@ -322,7 +322,7 @@ $(document).ready(function () {
     var recalledCity = $(this).text();
 
     var queryURL =
-      "http://api.openweathermap.org/data/2.5/weather?q=" +
+      "https://api.openweathermap.org/data/2.5/weather?q=" +
       recalledCity +
       "&appid=c64ae898096dd7b2fab2998d1d228df8";
 
@@ -365,7 +365,7 @@ $(document).ready(function () {
       var lat = response.coord.lat;
       var lon = response.coord.lon;
       var newQueryURL =
-        "http://api.openweathermap.org/data/2.5/uvi?lat=" +
+        "https://api.openweathermap.org/data/2.5/uvi?lat=" +
         lat +
         "&lon=" +
         lon +
