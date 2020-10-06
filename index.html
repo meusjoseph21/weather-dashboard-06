@@ -10,34 +10,55 @@
     <title>Weather Dashboard</title>
 </head>
 <body>
-    <div class = "container-fluid">
+    <header class = "container-fluid">
         <nav class="navbar navbar-dark bg-dark">
-            <span class="navbar-text ">
-              <strong>Weather Dashboard</strong>
-            </span>
-          </nav>
+            <a class="navbar-brand" href="#">Weather Dashboard</a>
+          </nav>      
+    </header>
 
-        <div class = "row">
-            <div class = "col-4">
-                <form class="form-inline my-2 my-lg-0 search">
+    <div class = "container-fluid">
+
+        <div class = "row"> 
+            <div  class = "col-4">
+                <form  class="form-inline my-2 my-lg-0 weather-options push">
                     <h2>Search For a City</h2>
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <input id = "cityValue" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button id = "citysearch" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                   </form>
-
-                  <div class="list-group weather-options">
-                    <a href="#" class="list-group-item list-group-item-action active">
-                      Cras justo odio
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
-                    <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
-                    <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-                    <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">Vestibulum at eros</a>
-                  </div>
-            </div>
+                <div id = "history"></div>
+            </div><!--search bar-->
+            <div id ="curr-weather" class = "col-8"></div><!--dynamically populate results here-->
         </div>
 
+        <div class ="row">
+            <div class = "col-2 day1 card">
+    
+            </div>
+            <div class = "col-2 day2 card">
+                
+
+            </div>
+            <div class = "col-2 day3 card" >
+               
+
+            </div>
+            <div class = "col-2 day4 card">
+              
+                
+
+            </div>
+            <div class = "col-2 day5 card">
+           
+
+            </div><!--populate 5 day forecast here-->
+        </div>
     </div>
+ 
+        
+            
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script><!--jquery load-->
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <script src = "script.js"></script><!--script sheet-->
     
 </body>
 </html>

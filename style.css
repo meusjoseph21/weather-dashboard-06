@@ -1,3 +1,7 @@
+body {
+    height: 1000px;
+}
+
 .navbar {
     margin-left: -20px;
     margin-right: -20px;
@@ -15,7 +19,45 @@
 
 .col-4 {
     height: 600px;
+    display: inline-block;
+    background: rgb(250, 225, 46);
 }
-/* div {
-    outline: 1px solid black;
-} */
+.col-8 {
+    display: inline-block;
+    background: rgb(37, 45, 207);
+    color: white;
+    text-align: center;
+    font-size: large;
+    
+}
+
+.col-12{
+    height: 400px;
+    display:inline-block;
+
+}
+
+.col-2{
+    height: 300px;
+    background: rgb(75, 171, 226 ) ;
+    margin: 20px 20px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    display: none;
+
+}
+
+#curr-weather {
+    padding-top: 150px;
+}
+
+.historybutton {
+   
+    display: block;
+    margin: 0 auto;
+}
+
+.push {
+    margin-bottom: 20px;
+}
