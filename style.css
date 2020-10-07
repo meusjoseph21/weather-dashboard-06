@@ -17,17 +17,19 @@ body {
     
 }
 
-.col-4 {
+.citystyle {
     height: 600px;
     display: inline-block;
     background: rgb(250, 225, 46);
 }
-.col-8 {
+.current {
     display: inline-block;
     background: rgb(37, 45, 207);
     color: white;
     text-align: center;
     font-size: large;
+  ;
+   
     
 }
 
@@ -37,20 +39,19 @@ body {
 
 }
 
-.col-2{
-    height: 300px;
+.card{
+    height: 200px;
     background: rgb(75, 171, 226 ) ;
     margin: 20px 20px;
     text-align: center;
     color: white;
     font-weight: bold;
     display: none;
+    padding-top: 20px;
 
 }
 
-#curr-weather {
-    padding-top: 150px;
-}
+
 
 .historybutton {
    

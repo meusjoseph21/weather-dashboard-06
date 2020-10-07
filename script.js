@@ -20,6 +20,8 @@ $(document).ready(function () {
 
   function CitySearch() {
     var city = $("#cityValue").val();
+    $(".card").css("display", "block");
+
 
     var queryURL =
       "https://api.openweathermap.org/data/2.5/weather?q=" +
@@ -408,7 +410,7 @@ $(document).ready(function () {
         }
         currentWeather.append(UVindex);
 
-        $(".col-2").css("display", "block");
+        $(".card").css("display", "block");
 
     
 
