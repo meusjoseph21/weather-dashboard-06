@@ -1,47 +1,17 @@
-# weather-dashboard-06
-# 06 Server-Side APIs: Weather Dashboard
+Weather Dashboard: Homework - 06:
 
-Developers are often tasked with retrieving data from another application's API and using it in the context of their own. Third-party APIs allow developers to access their data and functionality by making requests with specific parameters to a URL. Your challenge is to build a weather dashboard that will run in the browser and feature dynamically updated HTML and CSS.
+For the weather Dashboard I tried to follow the format of the supplied asset. My weather dashboard successfully does searches of any valid locations in the weather API, it gives a five day forecast for that location, and it stores your recent searches until decide to clear them. 
 
-Use the [OpenWeather API](https://openweathermap.org/api) to retrieve weather data for cities. The documentation includes a section called "How to start" that will provide basic setup and usage instructions. Use `localStorage` to store any persistent data.
+This weather app could be useful for people traveling to a new location or just wanting to utilize it for the weather in their current location. 
 
-## User Story
+I used Jquery and DayJS() in this assignment. A majority of my material on the page has been created dynamically in the script.js section and I find this method of document design to be much easier. 
 
-```
-AS A traveler
-I WANT to see the weather outlook for multiple cities
-SO THAT I can plan a trip accordingly
-```
+I will note that I did not make use of a for loop when creating the 5 day weather forecast, the reason being is that I hard coded and had successful data outputs and when I realized I could do a for loop, I tried and did not have successful data outputs. In the future I would definitely do a for loop, but being that my weather app does operate successfully I am satisfied with the extra work it took to hard code all of that information.
 
-## Acceptance Criteria
+I found this assignment in all to be the first time that I have successfully used psuedocoding. I was pretty much on my own for the entirety of the assignment aside from the help of peers here and there. 
 
-```
-GIVEN a weather dashboard with form inputs
-WHEN I search for a city
-THEN I am presented with current and future conditions for that city and that city is added to the search history
-WHEN I view current weather conditions for that city
-THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
-WHEN I view the UV index
-THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe
-WHEN I view future weather conditions for that city
-THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity
-WHEN I click on a city in the search history
-THEN I am again presented with current and future conditions for that city
-WHEN I open the weather dashboard
-THEN I am presented with the last searched city forecast
-```
+Github repository: https://github.com/meusjoseph21/weather-dashboard-06
 
-The following image demonstrates the application functionality:
+Github Deployed Page: https://meusjoseph21.github.io/weather-dashboard-06/
 
-![weather dashboard demo](./Assets/06-server-side-apis-homework-demo.png)
-
-## Review
-
-You are required to submit the following for review:
-
-* The URL of the deployed application.
-
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
-
-- - -
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+<img src = "./Assets/images/screenshot.png">
