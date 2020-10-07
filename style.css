@@ -61,3 +61,20 @@ body {
 .push {
     margin-bottom: 20px;
 }
+
+.yellow {
+    color: yellow;
+}
+
+.orange {
+    color: orange;
+}
+
+.red {
+    color: red;
+
+}
+
+.violet {
+    color: violet;
+}

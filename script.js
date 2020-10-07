@@ -78,6 +78,15 @@ $(document).ready(function () {
         var UVindex = $("<div>");
         UVindex.addClass("colorIndex");
         UVindex.text("UV Index: " + response.value);
+        if (response.value < 6){
+            UVindex.addClass("yellow")
+        } else if (response.value < 8){
+            UVindex.addClass("orange")
+        } else if (responese.value < 11){
+            UVindex.addClass("red")
+        } else {
+            UVindex.addClass("voilet")
+        }
         currentWeather.append(UVindex);
       });
 
@@ -97,7 +106,10 @@ $(document).ready(function () {
         //DAY ONE ----------
         //------------------
 
-        var temp1 = response.daily[0].temp.day;
+       
+
+
+        var temp1 = response.daily[1].temp.day;
         var convertTemp = (temp1 - 273.15) * 1.8 + 32;
         var wholeTemp = Math.floor(convertTemp);
   
@@ -107,7 +119,7 @@ $(document).ready(function () {
         dayOneTemp.text("Temperature: " + wholeTemp + " F");
         $(".day1").append(dayOneTemp);
   
-        var humidity1 = response.daily[0].humidity;
+        var humidity1 = response.daily[1].humidity;
   
         var dayOneHum = $("<div>");
         dayOneHum.text("Humidity: " + humidity1 + " %");
@@ -117,25 +129,27 @@ $(document).ready(function () {
           .attr(
             "src",
             "http://openweathermap.org/img/w/" +
-              response.daily[0].weather[0].icon +
+              response.daily[1].weather[0].icon +
               ".png"
           )
           .addClass("card-body alignment");
+          $(".day1").append(img1)
+
+          var dt = response.daily[1].dt
+          var date = dt *1000
+          var dateFormat = new Date(date)
+          var dateDisplay = dateFormat.toLocaleString()
+
+          $(".day1").append(dateDisplay)
   
-        $(".day1").append(img1);
-  
-        var time1 = response.daily[0].dt_txt;
-  
-        var timeDiv1 = $("<div>");
-        timeDiv1.text(time1);
-        $(".day1").append(timeDiv1);
+        
 
         //------------------------------------------------
 
          //------------------
         //DAY TWO ----------
         //------------------
-        var temp2 = response.daily[1].temp.day;
+        var temp2 = response.daily[2].temp.day;
         var convertTemp2 = (temp2 - 273.15) * 1.8 + 32;
         var wholeTemp2 = Math.floor(convertTemp2);
   
@@ -145,7 +159,7 @@ $(document).ready(function () {
         dayTwoTemp.text("Temperature: " + wholeTemp2 + " F");
         $(".day2").append(dayTwoTemp);
   
-        var humidity2 = response.daily[1].humidity;
+        var humidity2 = response.daily[2].humidity;
   
         var dayTwoHum = $("<div>");
         dayTwoHum.text("Humidity: " + humidity2 + " %");
@@ -155,24 +169,26 @@ $(document).ready(function () {
           .attr(
             "src",
             "http://openweathermap.org/img/w/" +
-              response.daily[1].weather[0].icon +
+              response.daily[2].weather[0].icon +
               ".png"
           )
           .addClass("card-body alignment");
         $(".day2").append(img2);
+
+        var dt1 = response.daily[2].dt
+          var date1 = dt1 *1000
+          var dateFormat1 = new Date(date1)
+          var dateDisplay1 = dateFormat1.toLocaleString()
+
+          $(".day2").append(dateDisplay1)
   
-        var time2 = response.daily[1].dt_txt;
-  
-        var timeDiv2 = $("<div>");
-        timeDiv2.text(time2);
-        $(".day2").append(timeDiv2);
         //------------------------------------------------
 
         //------------------
         //DAY THREE ----------
         //------------------
 
-        var temp3 = response.daily[2].temp.day;
+        var temp3 = response.daily[3].temp.day;
         var convertTemp3 = (temp3 - 273.15) * 1.8 + 32;
         var wholeTemp3 = Math.floor(convertTemp3);
   
@@ -182,7 +198,7 @@ $(document).ready(function () {
         dayThreeTemp.text("Temperature: " + wholeTemp3 + " F");
         $(".day3").append(dayThreeTemp);
   
-        var humidity3 = response.daily[2].humidity;
+        var humidity3 = response.daily[3].humidity;
   
         var dayThreeHum = $("<div>");
         dayThreeHum.text("Humidity: " + humidity3 + " %");
@@ -192,25 +208,25 @@ $(document).ready(function () {
           .attr(
             "src",
             "http://openweathermap.org/img/w/" +
-              response.daily[2].weather[0].icon +
+              response.daily[3].weather[0].icon +
               ".png"
           )
           .addClass("card-body alignment");
         $(".day3").append(img3);
   
-        var time3 = response.daily[2].dt_txt;
-  
-        var timeDiv3 = $("<div>");
-        timeDiv3.text(time3);
-        $(".day3").append(timeDiv3);
+        var dt2 = response.daily[3].dt
+        var date2 = dt2 *1000
+        var dateFormat2 = new Date(date2)
+        var dateDisplay2 = dateFormat2.toLocaleString()
 
+        $(".day3").append(dateDisplay2)
          //------------------------------------------------
 
          //------------------
         //DAY FOUR ----------
         //------------------
         
-         var temp4 = response.daily[3].temp.day;
+         var temp4 = response.daily[4].temp.day;
          var convertTemp4 = (temp4 - 273.15) * 1.8 + 32;
          var wholeTemp4 = Math.floor(convertTemp4);
    
@@ -220,7 +236,7 @@ $(document).ready(function () {
          dayFourTemp.text("Temperature: " + wholeTemp4 + " F");
          $(".day4").append(dayFourTemp);
    
-         var humidity4 = response.daily[3].humidity;
+         var humidity4 = response.daily[4].humidity;
    
          var dayFourHum = $("<div>");
          dayFourHum.text("Humidity: " + humidity4 + " %");
@@ -230,17 +246,18 @@ $(document).ready(function () {
            .attr(
              "src",
              "http://openweathermap.org/img/w/" +
-               response.daily[3].weather[0].icon +
+               response.daily[4].weather[0].icon +
                ".png"
            )
            .addClass("card-body alignment");
          $(".day4").append(img4);
    
-         var time4 = response.daily[3].dt_txt;
-   
-         var timeDiv4 = $("<div>");
-         timeDiv4.text(time4);
-         $(".day4").append(timeDiv4);
+         var dt3 = response.daily[4].dt
+          var date3 = dt3 *1000
+          var dateFormat3 = new Date(date3)
+          var dateDisplay3 = dateFormat3.toLocaleString()
+
+          $(".day4").append(dateDisplay3)
          //------------------------------------------------
 
           //------------------
@@ -248,7 +265,7 @@ $(document).ready(function () {
         //------------------
         
 
-         var temp5 = response.daily[4].temp.day;
+         var temp5 = response.daily[5].temp.day;
          var convertTemp5 = (temp5 - 273.15) * 1.8 + 32;
          var wholeTemp5 = Math.floor(convertTemp5);
    
@@ -258,7 +275,7 @@ $(document).ready(function () {
          dayFiveTemp.text("Temperature: " + wholeTemp5 + " F");
          $(".day5").append(dayFiveTemp);
    
-         var humidity5 = response.daily[4].humidity;
+         var humidity5 = response.daily[5].humidity;
    
          var dayFiveHum = $("<div>");
          dayFiveHum.text("Humidity: " + humidity5 + " %");
@@ -268,17 +285,19 @@ $(document).ready(function () {
            .attr(
              "src",
              "http://openweathermap.org/img/w/" +
-               response.daily[4].weather[0].icon +
+               response.daily[5].weather[0].icon +
                ".png"
            )
            .addClass("card-body alignment");
          $(".day5").append(img5);
    
-         var time1 = response.daily[4].dt_txt;
-   
-         var timeDiv4 = $("<div>");
-         timeDiv4.text(time4);
-         $(".day5").append(timeDiv4);
+         var dt4 = response.daily[5].dt
+          var date4 = dt4 *1000
+          var dateFormat4 = new Date(date4)
+          var dateDisplay4 = dateFormat4.toLocaleString()
+         
+
+          $(".day5").append(dateDisplay4)
 
          //------------------------------------------------
 
@@ -378,6 +397,15 @@ $(document).ready(function () {
         var UVindex = $("<div>");
         UVindex.addClass("colorIndex");
         UVindex.text("UV Index: " + response.value);
+        if (response.value < 6){
+            UVindex.addClass("yellow")
+        } else if (response.value < 8){
+            UVindex.addClass("orange")
+        } else if (responese.value < 11){
+            UVindex.addClass("red")
+        } else {
+            UVindex.addClass("voilet")
+        }
         currentWeather.append(UVindex);
 
         $(".col-2").css("display", "block");
@@ -396,7 +424,7 @@ $(document).ready(function () {
             //DAY ONE ----------
             //------------------
     
-            var temp1 = response.daily[0].temp.day;
+            var temp1 = response.daily[1].temp.day;
             var convertTemp = (temp1 - 273.15) * 1.8 + 32;
             var wholeTemp = Math.floor(convertTemp);
       
@@ -406,7 +434,7 @@ $(document).ready(function () {
             dayOneTemp.text("Temperature: " + wholeTemp + " F");
             $(".day1").append(dayOneTemp);
       
-            var humidity1 = response.daily[0].humidity;
+            var humidity1 = response.daily[1].humidity;
       
             var dayOneHum = $("<div>");
             dayOneHum.text("Humidity: " + humidity1 + " %");
@@ -416,25 +444,27 @@ $(document).ready(function () {
               .attr(
                 "src",
                 "http://openweathermap.org/img/w/" +
-                  response.daily[0].weather[0].icon +
+                  response.daily[1].weather[0].icon +
                   ".png"
               )
               .addClass("card-body alignment");
       
             $(".day1").append(img1);
       
-            var time1 = response.daily[0].dt_txt;
-      
-            var timeDiv1 = $("<div>");
-            timeDiv1.text(time1);
-            $(".day1").append(timeDiv1);
+            var dt = response.daily[1].dt
+            var date = dt *1000
+             var dateFormat = new Date(date)
+            var dateDisplay = dateFormat.toLocaleString()
+
+             $(".day1").append(dateDisplay)
+  
     
             //------------------------------------------------
     
              //------------------
             //DAY TWO ----------
             //------------------
-            var temp2 = response.daily[1].temp.day;
+            var temp2 = response.daily[2].temp.day;
             var convertTemp2 = (temp2 - 273.15) * 1.8 + 32;
             var wholeTemp2 = Math.floor(convertTemp2);
       
@@ -444,7 +474,7 @@ $(document).ready(function () {
             dayTwoTemp.text("Temperature: " + wholeTemp2 + " F");
             $(".day2").append(dayTwoTemp);
       
-            var humidity2 = response.daily[1].humidity;
+            var humidity2 = response.daily[2].humidity;
       
             var dayTwoHum = $("<div>");
             dayTwoHum.text("Humidity: " + humidity2 + " %");
@@ -454,24 +484,26 @@ $(document).ready(function () {
               .attr(
                 "src",
                 "http://openweathermap.org/img/w/" +
-                  response.daily[1].weather[0].icon +
+                  response.daily[2].weather[0].icon +
                   ".png"
               )
               .addClass("card-body alignment");
             $(".day2").append(img2);
       
-            var time2 = response.daily[1].dt_txt;
-      
-            var timeDiv2 = $("<div>");
-            timeDiv2.text(time2);
-            $(".day2").append(timeDiv2);
+            var dt1 = response.daily[2].dt
+            var date1 = dt1 *1000
+            var dateFormat1 = new Date(date1)
+            var dateDisplay1 = dateFormat1.toLocaleString()
+
+            $(".day2").append(dateDisplay1)
+  
             //------------------------------------------------
     
             //------------------
             //DAY THREE ----------
             //------------------
     
-            var temp3 = response.daily[2].temp.day;
+            var temp3 = response.daily[3].temp.day;
             var convertTemp3 = (temp3 - 273.15) * 1.8 + 32;
             var wholeTemp3 = Math.floor(convertTemp3);
       
@@ -481,7 +513,7 @@ $(document).ready(function () {
             dayThreeTemp.text("Temperature: " + wholeTemp3 + " F");
             $(".day3").append(dayThreeTemp);
       
-            var humidity3 = response.daily[2].humidity;
+            var humidity3 = response.daily[3].humidity;
       
             var dayThreeHum = $("<div>");
             dayThreeHum.text("Humidity: " + humidity3 + " %");
@@ -491,17 +523,18 @@ $(document).ready(function () {
               .attr(
                 "src",
                 "http://openweathermap.org/img/w/" +
-                  response.daily[2].weather[0].icon +
+                  response.daily[3].weather[0].icon +
                   ".png"
               )
               .addClass("card-body alignment");
             $(".day3").append(img3);
       
-            var time3 = response.daily[2].dt_txt;
-      
-            var timeDiv3 = $("<div>");
-            timeDiv3.text(time3);
-            $(".day3").append(timeDiv3);
+            var dt2 = response.daily[3].dt
+            var date2 = dt2 *1000
+            var dateFormat2 = new Date(date2)
+            var dateDisplay2 = dateFormat2.toLocaleString()
+
+            $(".day3").append(dateDisplay2)
     
              //------------------------------------------------
     
@@ -509,7 +542,7 @@ $(document).ready(function () {
             //DAY FOUR ----------
             //------------------
             
-             var temp4 = response.daily[3].temp.day;
+             var temp4 = response.daily[4].temp.day;
              var convertTemp4 = (temp4 - 273.15) * 1.8 + 32;
              var wholeTemp4 = Math.floor(convertTemp4);
        
@@ -519,7 +552,7 @@ $(document).ready(function () {
              dayFourTemp.text("Temperature: " + wholeTemp4 + " F");
              $(".day4").append(dayFourTemp);
        
-             var humidity4 = response.daily[3].humidity;
+             var humidity4 = response.daily[4].humidity;
        
              var dayFourHum = $("<div>");
              dayFourHum.text("Humidity: " + humidity4 + " %");
@@ -529,17 +562,18 @@ $(document).ready(function () {
                .attr(
                  "src",
                  "http://openweathermap.org/img/w/" +
-                   response.daily[3].weather[0].icon +
+                   response.daily[4].weather[0].icon +
                    ".png"
                )
                .addClass("card-body alignment");
              $(".day4").append(img4);
        
-             var time4 = response.daily[3].dt_txt;
-       
-             var timeDiv4 = $("<div>");
-             timeDiv4.text(time4);
-             $(".day4").append(timeDiv4);
+            var dt3 = response.daily[4].dt
+            var date3 = dt3 *1000
+            var dateFormat3 = new Date(date3)
+            var dateDisplay3 = dateFormat3.toLocaleString()
+
+            $(".day4").append(dateDisplay3)
              //------------------------------------------------
     
               //------------------
@@ -547,7 +581,7 @@ $(document).ready(function () {
             //------------------
             
     
-             var temp5 = response.daily[4].temp.day;
+             var temp5 = response.daily[5].temp.day;
              var convertTemp5 = (temp5 - 273.15) * 1.8 + 32;
              var wholeTemp5 = Math.floor(convertTemp5);
        
@@ -557,7 +591,7 @@ $(document).ready(function () {
              dayFiveTemp.text("Temperature: " + wholeTemp5 + " F");
              $(".day5").append(dayFiveTemp);
        
-             var humidity5 = response.daily[4].humidity;
+             var humidity5 = response.daily[5].humidity;
        
              var dayFiveHum = $("<div>");
              dayFiveHum.text("Humidity: " + humidity5 + " %");
@@ -567,17 +601,19 @@ $(document).ready(function () {
                .attr(
                  "src",
                  "http://openweathermap.org/img/w/" +
-                   response.daily[4].weather[0].icon +
+                   response.daily[5].weather[0].icon +
                    ".png"
                )
                .addClass("card-body alignment");
              $(".day5").append(img5);
        
-             var time1 = response.daily[4].dt_txt;
-       
-             var timeDiv4 = $("<div>");
-             timeDiv4.text(time4);
-             $(".day5").append(timeDiv4);
+            var dt4 = response.daily[5].dt
+            var date4 = dt4 *1000
+            var dateFormat4 = new Date(date4)
+            var dateDisplay4 = dateFormat4.toLocaleString()
+         
+
+            $(".day5").append(dateDisplay4)
     
              //------------------------------------------------
     
